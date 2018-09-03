@@ -9,9 +9,22 @@
                 <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
             </view>
             <view class="weui-tab__panel">
-                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">选项一的内容</view>
+            <view class="weui-tab__content" hidden="{{activeIndex != 0}}">天气预报</view>
+                <view  hidden="{{activeIndex != 0}}">
+                <view class="page-body">
+    <view class="page-section page-section-spacing">
+      <view class="text-box" scroll-y="true" scroll-top="{{scrollTop}}">
+        <text>{{weather}}</text>
+      </view>
+     
+    </view>
+  </view>
+                </view>
+      
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}"><view class="container">
   <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+   <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ direction }}"></ec-canvas>
+
   <ec-canvas id="mychart-dom-line-cj" canvas-id="mychart-line-cj" ec="{{ eccj }}"></ec-canvas>
 
 </view></view>
