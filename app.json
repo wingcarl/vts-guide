@@ -8,5 +8,28 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "VTS指南",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home.png"
+      }, 
+      {
+        "pagePath": "pages/index/index",
+        "text": "设置",
+        "iconPath": "images/information.png",
+        "selectedIconPath": "images/information.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "水文气象",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message.png"
+      }
+    ]
   }
 }
