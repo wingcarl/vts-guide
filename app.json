@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/guide/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -13,22 +14,22 @@
     "selectedColor": "#1296db",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/guide/index",
         "text": "VTS指南",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home.png"
+        "iconPath": "images/guide.png",
+        "selectedIconPath": "images/guide-click.png"
       }, 
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/guide/index",
         "text": "设置",
-        "iconPath": "images/information.png",
-        "selectedIconPath": "images/information.png"
+        "iconPath": "images/read.png",
+        "selectedIconPath": "images/read-click.png"
       },
       {
         "pagePath": "pages/index/index",
         "text": "水文气象",
-        "iconPath": "images/message.png",
-        "selectedIconPath": "images/message.png"
+        "iconPath": "images/weather.png",
+        "selectedIconPath": "images/weather-click.png"
       }
     ]
   }

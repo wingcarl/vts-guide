@@ -47,7 +47,7 @@ page,
 }
 #mychart-dom-line-cj {
   position: absolute;
-  top: 90%;
+  top: 95%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -61,7 +61,7 @@ page,
 }
 #mychart-dom-gauge{
   position: absolute;
-  top: 45%;
+  top: 42%;
   bottom: 0;
   left: 0;
   right: 0;

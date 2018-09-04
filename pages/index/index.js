@@ -122,20 +122,11 @@ var op = {};
 function initDirectChart(canvas, width, height) {
   chartDirect = echarts.init(canvas, null, {
     width: width,
-    height: height
+    height: height-20
   });
   canvas.setChart(chartDirect);
   op = {
-    title: {
-      x: "center",
-      top: 0,
-      text: '实时风速风向',
-      textStyle: {
-        fontWeight: 'normal',
-        fontSize: 18,
-        color: "#333"
-      }
-    },
+    
     tooltip: {
       show: true,
       backgroundColor: '#fff',
@@ -181,8 +172,8 @@ function initDirectChart(canvas, width, height) {
       type: 'gauge',
       radius: '80%',
       splitNumber: 1,
-      min: 0,
-      max: 360,
+      min: 0,   
+      max: 360,  
       startAngle: 90,
       endAngle: 449.9,
       axisLine: {

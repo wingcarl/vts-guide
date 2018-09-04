@@ -18,7 +18,7 @@
       </view>
      
     </view>
-  </view>
+  </view> 
                 </view>
       
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}"><view class="container">
