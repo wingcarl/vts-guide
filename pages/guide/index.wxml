@@ -1,92 +1,114 @@
 <view class="page">
-    <view class="page__hd">
-        <view class="page__title">Panel</view>
-        <view class="page__desc">面板</view>
-    </view>
     <view class="page__bd">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">图文组合列表</view>
-            <view class="weui-panel__bd">
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
                     </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">标题一</view>
-                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                    </view>
-                </navigator>
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">标题二</view>
-                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                    </view>
-                </navigator>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
             </view>
-            <view class="weui-panel__ft">
-                <view class="weui-cell weui-cell_access weui-cell_link">
-                    <view class="weui-cell__bd">查看更多</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                   <view class="kind-list">
+            <block>
+                <view class="kind-list__item">
+                    <view id="intro" class="weui-flex kind-list__item-hd {{open['intro'] ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                        <view class="weui-flex__item">管理与服务区域</view>
+                        <image class="kind-list__img" src="../images/icon_nav_form.png"></image>
+                    </view>
+                    <view class="kind-list__item-bd {{open['intro'] ? 'kind-list__item-bd_show' : ''}}">
+
+                          <view class="text-box" >
+                            <text>十一圩河口与小李港河口联线至大河港河口与螃蜞港河口联线之间水域（长江#32浮至长江#58浮附近）和沪通长江大桥桥区施工水域（长江#32浮联线至长江36浮联线）</text>
+                          </view>
+                    </view>
+                    <view id="ship" class="weui-flex kind-list__item-hd {{open['ship'] ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                        <view class="weui-flex__item">航行规则</view>
+                        <image class="kind-list__img" src="../images/icon_nav_special.png"></image>
+                    </view>
+                    <view class="kind-list__item-bd {{open['ship'] ? 'kind-list__item-bd_show' : ''}}">
+                      <view class="table">
+                       <view class="tr">
+                            <view class="th th3">航速限制</view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">正常航行</view>
+                            <view class="td">最低：6节（11km/h)</view>
+                            <view class="td">最高：15节（28km/h)</view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">桥区水域</view>
+                            <view class="td">逆流最高8节</view>
+                            <view class="td">顺流最高11节</view>
+                        </view>     
+                        <view class="tr">
+                            <view class="th th3">追越限制</view>
+                        </view>
+                        <view class="tr">
+                            <view class="td td1">3000吨及以上船舶/船队</view>
+                            <view  class="td td3">福姜沙南水道及福姜沙南水道上下口（长江#44浮至长江#59浮）、渡运水域禁止追越</view>
+                        </view>
+                         <view class="tr">
+                            <view class="th th3">掉头限制区域</view>
+							</view>
+                        <view class="tr">
+                          <view class="th th3">一类禁掉区（禁止所有运输船舶在此水域内掉头）                             </view>
+                    </view>
+                        <view class="tr">
+                            <view class="td td1">福南水道航行受控航段禁掉区</view>
+                            <view  class="td td3">长江#44红浮与长江#44黑浮联线至长江#46黑浮与德积示位标联线之间水域；长江#48黑浮与孚宝码头前沿垂直线至长江#52黑浮与江海粮油水塔联线之间水域；长江#55黑浮与巫山港河口联线至长江#57黑浮与长山油库码头下端联线之间水域</view>
+                        </view>
+                        <view class="tr">
+                            <view class="td td1">所有船舶</view>
+                            <view  class="td td3">福姜沙北水道FB#4-1至FB#7浮水域禁止追越，船舶在福姜沙北水道上下口避免追越</view>
+                        </view>
+                    </view>
+                           
+                    </view>
+					<view id="pic" class="weui-flex kind-list__item-hd" bindtap="imagePreviewZjg">
+                        <view class="weui-flex__item" >辖区图</view>
+                        <image class="kind-list__img" src="../images/icon_nav_z-index.png"></image>
+                    </view>
+                    <view id="tel" class="weui-flex kind-list__item-hd {{open['tel'] ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                        <view class="weui-flex__item">联系方式</view>
+                        <image class="kind-list__img" src="../images/icon_nav_widget.png"></image>
+                    </view>
+                    <view class="kind-list__item-bd {{open['tel'] ? 'kind-list__item-bd_show' : ''}}">
+
+                          <view class="text-line" >
+                            1.甚高频无线电话：VHF10频道
+                          </view>
+                           <view class="text-line" bindtap="wxTel" >
+                            2.有线电话：0512-58330432
+                          </view>      
+                    </view>
                 </view>
-            </view>
+                
+            </block>
         </view>
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">文字组合列表</view>
-            <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">标题一</view>
-                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
                 </view>
-                <view class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">标题二</view>
-                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                <view class="table">
+                  <view class="tr">
+                      <view class="th">上行船位核对点</view>
+                      <view class="th">下行船位核对点</view>
+                      <view class="th">核对点类别</view> 
+                  </view>
+                  <view class="tr">
+                      <view class="td">#32黑浮</view>
+                      <view  class="td">FN#18黑浮或#58红浮</view>
+                      <view  class="td">定线制规定核对点</view>
+                  </view>
+                   <view class="tr">
+                      <view class="td">#48黑浮或FB#4黑浮</view>
+                      <view  class="td">FB#17黑浮或FB#13红浮</view>
+                      <view  class="td">进入单向控制航段前报告</view>
+                  </view>
+              </view>
                 </view>
-            </view>
-            <view class="weui-panel__ft">
-                <view class="weui-cell weui-cell_access weui-cell_link">
-                    <view class="weui-cell__bd">查看更多</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                </view>
-            </view>
-        </view>
-        <view class="weui-panel">
-            <view class="weui-panel__hd">小图文组合列表</view>
-            <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_small-appmsg">
-                    <view class="weui-cells weui-cells_in-small-appmsg">
-                        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                            <view class="weui-cell__hd"><image src="{{icon20}}" style="width: 20px;height: 20px;margin-right: 5px" /></view>
-                            <view class="weui-cell__bd weui-cell_primary">
-                                <view>文字标题</view>
-                            </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                        </navigator>
-                        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                            <view class="weui-cell__hd"><image src="{{icon20}}" style="width: 20px;height: 20px;margin-right: 5px" /></view>
-                            <view class="weui-cell__bd weui-cell_primary">
-                                <view>文字标题</view>
-                            </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="weui-panel">
-            <view class="weui-panel__hd">文字列表附来源</view>
-            <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_text">
-                    <view class="weui-media-box__title weui-media-box__title_in-text">标题一</view>
-                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                    <view class="weui-media-box__info">
-                        <view class="weui-media-box__info__meta">文字来源</view>
-                        <view class="weui-media-box__info__meta">时间</view>
-                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
-                    </view>
-                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">航路判断</view>
             </view>
         </view>
     </view>
